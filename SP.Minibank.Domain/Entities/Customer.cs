@@ -23,6 +23,8 @@ namespace SP.Minibank.Domain.Entities
             Contact = contact;
             Address = address;
             Accounts = new List<Account>();
+            Transactions = new List<Transaction>();
+
         }
         public string FirstName { get; private set; }
         public string LastName { get; private set; }
@@ -32,6 +34,7 @@ namespace SP.Minibank.Domain.Entities
         public string Contact { get; private set; }
         public string Address { get; private set; }
         public IList<Account> Accounts { get; private set; }
+        public IReadOnlyCollection<Transaction> Transactions { get; set; }
 
         public override string ToString(){
             return $"{FirstName} {LastName}";

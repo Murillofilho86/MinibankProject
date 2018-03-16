@@ -11,10 +11,12 @@ namespace SP.Minibank.Domain.Entities
             Costumer = customer;
             DateCreated = DateTime.Now;
             Status = EAccountStatus.Created;
+            Agency = "7157";
+            NumberAccount = "23675 - 4";
+            Transactions = new List<Transaction>();
         }
 
-        public long NumberAccount { get; private set; }
-        public int Code { get; private set; }
+        public string NumberAccount { get; private set; }
         public decimal Balance { get; private set; }
         public string Agency { get; private set; }
         public EAccountType Type { get; private set; }
@@ -22,6 +24,12 @@ namespace SP.Minibank.Domain.Entities
         public DateTime DateCreated { get; private set; }
         public Customer Costumer { get; private set; }
         public IReadOnlyCollection<Transaction> Transactions { get; private set; }
+
+        public void AddTransaction(Transaction transaction)
+        {
+          //Valida transação 
+          //Adiciona item
+        }
 
     }
 }

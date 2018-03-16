@@ -10,8 +10,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SP.Minibank.Infra", "SP.Min
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SP.Minibank.Tests", "SP.Minibank.Tests\SP.Minibank.Tests.csproj", "{CF94CE53-E6AB-4368-B248-06F76C129A2D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SP.Minibank.API", "SP.Minibank.API\SP.Minibank.API.csproj", "{2D1315D0-33B7-450F-8201-33119EBB8E63}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
