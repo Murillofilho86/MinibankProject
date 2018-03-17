@@ -1,5 +1,7 @@
+using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-
+using SP.Minibank.Domain.Entities;
+using SP.Minibank.Domain.Enums;
 
 namespace SP.Minibank.Tests
 {
@@ -9,9 +11,7 @@ namespace SP.Minibank.Tests
         [TestMethod]
         public void TestMethod1()
         {
-            // var c = new Customer("Joselito", "SemNoção", "josa@hotmail.com", "", 1, "22669-6969", "Rua dos bobos, 0");
-            // var account = new Account(c);
-            
+            var c = new Customer("Murillo", "Josa", "murillo@gmail.com", DateTime.Now, ECustomerDocument.CPF, "2569-6969");
         }
     }
 }
