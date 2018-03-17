@@ -23,10 +23,9 @@ namespace SP.Minibank.Domain.Entities
             BirthDate = birthDate;
             Document = document;
             Contact = contact;
-            _addAdresses = new List<Address>();
             Accounts = new List<Account>();
             Transactions = new List<Transaction>();
-
+            _addAdresses = new List<Address>();
         }
         public Name Name { get; private set; }
         public Email Email { get; private set; }

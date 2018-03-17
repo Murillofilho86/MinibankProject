@@ -11,7 +11,6 @@ namespace SP.Minibank.Tests
         [TestMethod]
         public void TestMethod1()
         {
-            var c = new Customer("Murillo", "Josa", "murillo@gmail.com", DateTime.Now, ECustomerDocument.CPF, "2569-6969");
         }
     }
 }
