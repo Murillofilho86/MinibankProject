@@ -1,12 +1,13 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using FluentValidator;
 using SP.Minibank.Domain.Enums;
 using SP.Minibank.Domain.ValueObjects;
 
 namespace SP.Minibank.Domain.Entities
 {
-    public class Customer
+    public class Customer : Notifiable
     {
         private readonly IList<Address> _addAdresses;
         public Customer(
@@ -41,7 +42,6 @@ namespace SP.Minibank.Domain.Entities
         {
             _addAdresses.Add(address);
         }
-
 
         public override string ToString()
         {
