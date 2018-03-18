@@ -14,4 +14,4 @@ namespace SP.Minibank.Domain.ValueObjects
             return Address;
         }
     }
-}
+} 

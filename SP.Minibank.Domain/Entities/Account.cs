@@ -26,11 +26,15 @@ namespace SP.Minibank.Domain.Entities
         public DateTime DateCreated { get; private set; }
         public Customer Costumer { get; private set; }
         public IReadOnlyCollection<Transaction> Transactions => _transaction.ToArray();
- 
+
         public void AddTransaction(Transaction transaction)
         {
             _transaction.Add(transaction);
         }
 
+        public void AddAccount(Account account)
+        {
+            //adicionar conta bancaria
+        }
     }
 }

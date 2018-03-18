@@ -16,5 +16,15 @@ namespace SP.Minibank.Domain.Entities
         public DateTime DateTransaction { get; private set; }
         public ETransactionType TypeTransaction { get; private set; }
         public decimal ValueTransaction { get; private set; }
+
+        public void AddTransaction(Transaction transaction)
+        {
+            //Adicionar validação
+        }
+        
+        public override string ToString()
+        {
+            return Customer.Name + ", " + DateTransaction + ", " + TypeTransaction + ", " + ValueTransaction;
+        }
     }
 }

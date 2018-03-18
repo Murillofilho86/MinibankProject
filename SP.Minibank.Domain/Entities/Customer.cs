@@ -33,8 +33,9 @@ namespace SP.Minibank.Domain.Entities
         public ECustomerDocument Document { get; private set; }
         public string Contact { get; private set; }
         public IReadOnlyCollection<Address> Address => _addAdresses.ToArray();
-        public IList<Account> Accounts { get; private set; }
+        public IReadOnlyCollection<Account> Accounts { get; private set; }
         public IReadOnlyCollection<Transaction> Transactions { get; set; }
+
 
         public void AddAddresses(Address address)
         {
