@@ -7,7 +7,7 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/SP.Minibank.API/SP.Minibank.API.csproj"
+                "${workspaceFolder}/SP.Minibank.Tests/SP.Minibank.Tests.csproj"
             ],
             "problemMatcher": "$msCompile"
         }

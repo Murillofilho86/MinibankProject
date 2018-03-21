@@ -1,31 +1,30 @@
 using System;
+using FluentValidator;
 using SP.Minibank.Domain.Enums;
 
 namespace SP.Minibank.Domain.Entities
 {
-    public class Transaction
+    public class Transaction : Notifiable
     {
-        public Transaction(Customer customer, ETransactionType type, decimal value)
+        public Transaction(Customer customer, Account account, decimal value)
         {
-            DateTransaction = DateTime.Now;
             Customer = customer;
+            Account = account;
+            DateTransaction = DateTime.Now;
             ValueTransaction = value;
+     
         }
 
         public Customer Customer { get; private set; }
+        public Account Account { get; set; }
         public DateTime DateTransaction { get; private set; }
-        public ETransactionType TypeTransaction { get; private set; }
-        
         public decimal ValueTransaction { get; private set; }
 
-        public void AddTransaction(Customer customer)
-        {
-            //Adicionar validação
-        }
-        
+
+     
         public override string ToString()
         {
-            return Customer.Name + ", " + DateTransaction + ", " + TypeTransaction + ", " + ValueTransaction;
+            return Customer.Name + ", " + DateTransaction + ", " + ValueTransaction + ", " + Account.Balance;
         }
     }
 }

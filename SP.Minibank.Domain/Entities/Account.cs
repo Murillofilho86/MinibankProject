@@ -17,29 +17,27 @@ namespace SP.Minibank.Domain.Entities
             Agency = "7157";
             NumberAccount = "23675 - 4";
             _transaction = new List<Transaction>();
-
-           
         }
 
         public string NumberAccount { get; private set; }
         public decimal Balance { get; private set; }
         public string Agency { get; private set; }
-           public string NumberDocument { get; set; }
+        public string NumberDocument { get; set; }
         public EAccountType Type { get; private set; }
         public EAccountStatus Status { get; private set; }
         public DateTime DateCreated { get; private set; }
         public Customer Costumer { get; private set; }
         public IReadOnlyCollection<Transaction> Transactions => _transaction.ToArray();
 
-        public void AddAccount(Customer customer)
-        {   
-            
-        }
-
-        public void AddBankTransaction(Transaction transaction)
+        public void AddBankTransaction(Customer customer, Account account, decimal balance)
         {
-            //Adiciona uma transação na conta
+            var bankTrasation = new Transaction(customer, account, balance);
+            _transaction.Add(bankTrasation);
         }
-
+        
+        public override string ToString()
+        {
+            return NumberAccount;
+        }
     }
 }

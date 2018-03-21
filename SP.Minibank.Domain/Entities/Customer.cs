@@ -7,15 +7,16 @@ using SP.Minibank.Domain.ValueObjects;
 
 namespace SP.Minibank.Domain.Entities
 {
-    public class Customer : Notifiable
+    public class Customer
     {
         private readonly IList<Address> _addAdresses;
         public Customer(
           Name name,
            Email email,
            DateTime birthDate,
-           ECustomerDocument document,
-           string contact
+           string document,
+           ECustomerDocument type,
+           string phone
            )
         {
 
@@ -23,7 +24,8 @@ namespace SP.Minibank.Domain.Entities
             Email = email;
             BirthDate = birthDate;
             Document = document;
-            Contact = contact;
+            Type = type;
+            Phone = phone;
             Accounts = new List<Account>();
             Transactions = new List<Transaction>();
             _addAdresses = new List<Address>();
@@ -31,8 +33,9 @@ namespace SP.Minibank.Domain.Entities
         public Name Name { get; private set; }
         public Email Email { get; private set; }
         public DateTime BirthDate { get; private set; }
-        public ECustomerDocument Document { get; private set; }
-        public string Contact { get; private set; }
+        public ECustomerDocument Type { get; private set; }
+        public string Document { get; set; }
+        public string Phone { get; private set; }
         public IReadOnlyCollection<Address> Address => _addAdresses.ToArray();
         public IReadOnlyCollection<Account> Accounts { get; private set; }
         public IReadOnlyCollection<Transaction> Transactions { get; set; }
