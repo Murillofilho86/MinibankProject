@@ -12,7 +12,7 @@ namespace SP.Minibank.Domain.Commands.CustomerCommands.Inputs
         public string BirthDate { get; set; }
         public string Document { get; set; }
         public string Email { get; set; }
-        public string Type { get; set; }
+      
         public string Phone { get; set; }
 
         public bool IsValid()
@@ -25,7 +25,7 @@ namespace SP.Minibank.Domain.Commands.CustomerCommands.Inputs
                 .HasMaxLen(LastName, 40, "LastName", "O SobreNome deve conter no máximo 40 caracteres")
                 .IsEmail(Email, "Email", "O E-mail é inválido")
             );
-            return IsValid();
+            return Valid;
         }
     }
 }
