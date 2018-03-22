@@ -1,10 +1,9 @@
 using System;
-using FluentValidator;
-using SP.Minibank.Domain.Enums;
+using SP.Minibank.Shared.Entities;
 
 namespace SP.Minibank.Domain.Entities
 {
-    public class Transaction : Notifiable
+    public class Transaction : EntityBase
     {
         public Transaction(Customer customer, Account account, decimal value)
         {

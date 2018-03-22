@@ -1,12 +1,12 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using FluentValidator;
 using SP.Minibank.Domain.Enums;
+using SP.Minibank.Shared.Entities;
 
 namespace SP.Minibank.Domain.Entities
 {
-    public class Account : Notifiable
+    public class Account : EntityBase
     {
         private readonly IList<Transaction> _transaction;
         public Account(Customer customer)

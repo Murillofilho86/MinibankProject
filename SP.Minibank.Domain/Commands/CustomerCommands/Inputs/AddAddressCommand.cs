@@ -4,7 +4,7 @@ using SP.Minibank.Shared.Commands;
 
 namespace SP.Minibank.Domain.Commands.CustomerCommands.Inputs
 {
-    public class AddAddressCommand : Notifiable
+    public class AddAddressCommand : Notifiable, ICommand
     {
         public Guid Id { get; set; }
          public string Street { get; set; }
@@ -16,5 +16,9 @@ namespace SP.Minibank.Domain.Commands.CustomerCommands.Inputs
         public string Country { get; set; }
         public string ZipeCode { get; set; }
 
+        public bool IsValid()
+        {
+            return IsValid();
+        }
     }
 }
