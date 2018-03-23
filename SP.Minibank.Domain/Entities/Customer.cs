@@ -24,7 +24,6 @@ namespace SP.Minibank.Domain.Entities
             Document = document;
             Phone = phone;
             Accounts = new List<Account>();
-            Transactions = new List<Transaction>();
             _addAdresses = new List<Address>();
         }
         public Name Name { get; private set; }
@@ -34,7 +33,6 @@ namespace SP.Minibank.Domain.Entities
         public string Phone { get; private set; }
         public IReadOnlyCollection<Address> Address => _addAdresses.ToArray();
         public IReadOnlyCollection<Account> Accounts { get; private set; }
-        public IReadOnlyCollection<Transaction> Transactions { get; set; }
 
 
         public void AddAddresses(Address address)
