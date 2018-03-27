@@ -1,19 +1,13 @@
-using System;
-using System.Transactions;
-using SP.Minibank.Domain.ValueObjects;
-using SP.Minibank.Shared.Entities;
+using SP.Minibank.Domain.Enums;
+using SP.Minibank.Domain.Services;
 
 namespace SP.Minibank.Domain.Entities
 {
-    public class Withdrawal : BankTransaction
+    public class Withdrawal : ITransactionService
     {
-        public Withdrawal(DateTime dateTransaction, decimal value) : base(dateTransaction, value)
+        public void AddTransaction(string idCustomer, string idAccount, decimal valueTransaction, ETransactionType type)
         {
-        }
-
-        public override void AddTransaction()
-        {
-            throw new NotImplementedException();
+            throw new System.NotImplementedException();
         }
     }
 }

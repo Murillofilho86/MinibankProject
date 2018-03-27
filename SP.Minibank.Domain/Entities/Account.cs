@@ -42,13 +42,6 @@ namespace SP.Minibank.Domain.Entities
         public IReadOnlyCollection<BankTransaction> BankTransaction => _bankTransaction.ToArray();
 
 
-        public void AddAccountTransaction(IList<BankTransaction> transactions)
-        {
-            foreach (var transaction in transactions)
-                transaction.AddTransaction();
-            
-        }
-
         public override string ToString()
         {
             return NumberAccount;

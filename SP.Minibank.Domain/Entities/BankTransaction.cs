@@ -1,10 +1,11 @@
 using System;
+using SP.Minibank.Shared.Entities;
 
-namespace SP.Minibank.Shared.Entities
+namespace SP.Minibank.Domain.Entities
 {
-    public abstract class BankTransaction : EntityBase
+    public class BankTransaction : EntityBase
     {
-      public BankTransaction(DateTime dateTransaction, decimal value)
+           public BankTransaction(DateTime dateTransaction, decimal value)
       {
           DateTransaction = DateTime.Now;
           ValueTransaction = value;
@@ -13,8 +14,8 @@ namespace SP.Minibank.Shared.Entities
         public DateTime DateTransaction { get; set; }
         public decimal ValueTransaction { get; set; }
 
-        public abstract void AddTransaction();
-        
+              
+         
         public override string ToString()
         {
             return DateTransaction + ", " + ValueTransaction;

@@ -1,15 +1,12 @@
 using System;
-using SP.Minibank.Shared.Entities;
+using SP.Minibank.Domain.Enums;
+using SP.Minibank.Domain.Services;
 
 namespace SP.Minibank.Domain.Entities
 {
-    public class Deposit : BankTransaction
+    public class Deposit : ITransactionService
     {
-        public Deposit(DateTime dateTransaction, decimal value) : base(dateTransaction, value)
-        {
-        }
-
-        public override void AddTransaction()
+        public void AddTransaction(string idCustomer, string idAccount, decimal valueTransaction, ETransactionType type)
         {
             throw new NotImplementedException();
         }
