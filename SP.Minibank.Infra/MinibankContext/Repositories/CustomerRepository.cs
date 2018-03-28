@@ -19,17 +19,58 @@ namespace SP.Minibank.Infra.MinibankContext.Repositories
 
         public bool CheckDocument(string document)
         {
-            throw new System.NotImplementedException();
+            return _context
+                .Connection
+                .Query<bool>(
+                "spCheckDocument",
+                    new { Document = document },
+                    commandType: CommandType.StoredProcedure)
+                    .FirstOrDefault();
+
         }
+
 
         public bool CheckEmail(string email)
         {
-            throw new System.NotImplementedException();
+            return _context
+                .Connection
+                .Query<bool>(
+                    "spCheckEmail",
+                    new { Email = email },
+                    commandType: CommandType.StoredProcedure)
+                .FirstOrDefault();
         }
 
         public void Save(Customer customer)
         {
-            throw new System.NotImplementedException();
+            _context.Connection.Execute("spCreateCustomer",
+            new
+            {
+                Id = customer.Id,
+                Firstname = customer.Name.FirstName,
+                LastName = customer.Name.LastName,
+                Document = customer.Document.Number,
+                Email = customer.Email.Address,
+                BirthDate = customer.BirthDate,
+                Phone = customer.Phone
+
+            }, commandType: CommandType.StoredProcedure);
+
+            foreach (var address in customer.Addresses)
+            {
+                _context.Connection.Execute("spCreateAddress",
+                new
+                {
+                    Id = address.Id,
+                    CustomerId = customer.Id,
+                    Number = address.Number,
+                    District = address.District,
+                    City = address.City,
+                    State = address.State,
+                    Country = address.Country,
+                    ZipCode = address.ZipeCode
+                }, commandType: CommandType.StoredProcedure);
+            }
         }
     }
 }

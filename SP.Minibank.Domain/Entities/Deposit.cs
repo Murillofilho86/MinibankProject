@@ -8,7 +8,7 @@ namespace SP.Minibank.Domain.Entities
     {
         public void AddTransaction(string idCustomer, string idAccount, decimal valueTransaction, ETransactionType type)
         {
-            throw new NotImplementedException();
+            
         }
     }
 }

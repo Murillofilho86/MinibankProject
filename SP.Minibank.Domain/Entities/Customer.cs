@@ -8,7 +8,7 @@ namespace SP.Minibank.Domain.Entities
 {
     public class Customer : EntityBase
     {
-        private readonly IList<Address> _addAdresses;
+        private readonly IList<Address> _addresses;
         public Customer(
           Name name,
            Email email,
@@ -24,20 +24,20 @@ namespace SP.Minibank.Domain.Entities
             Document = document;
             Phone = phone;
             Accounts = new List<Account>();
-            _addAdresses = new List<Address>();
+            _addresses = new List<Address>();
         }
         public Name Name { get; private set; }
         public Email Email { get; private set; }
         public DateTime BirthDate { get; private set; }
         public Document Document { get; set; }
         public string Phone { get; private set; }
-        public IReadOnlyCollection<Address> Address => _addAdresses.ToArray();
+        public IReadOnlyCollection<Address> Addresses => _addresses.ToArray();
         public IReadOnlyCollection<Account> Accounts { get; private set; }
 
 
         public void AddAddresses(Address address)
         {
-            _addAdresses.Add(address);
+            _addresses.Add(address);
         }
 
         public override string ToString()

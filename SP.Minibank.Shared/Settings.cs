@@ -2,6 +2,7 @@ namespace SP.Minibank.Shared
 {
     public static class Settings
     {
-        public static string ConnectionsString = "";
+        //TODO: Passar a string de conexão
+        public static string ConnectionString = "";
     }
 }
