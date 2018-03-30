@@ -49,14 +49,23 @@ namespace SP.Minibank.Domain.Handlers
            AddNotifications(customer.Notifications);
 
            if(Invalid)
-                return null;
+                return new CommandResult(
+                    false,
+                    "Não foi possivel cadastrar novo cliente.",
+                    Notifications
+                );
 
            //Persistir Cliente
            _repository.Save(customer);
 
           
            //Retornar Resultado pra tela
-           return new CreateCustomerCommandResult(Guid.NewGuid(), name.ToString(), email.Address);
+           return new CommandResult(true, "Cliente cadastrado com sucesso.", new{
+               Id = customer.Id,
+               Name = name.ToString(),
+               Email = email.ToString()
+
+           });
         }
 
 

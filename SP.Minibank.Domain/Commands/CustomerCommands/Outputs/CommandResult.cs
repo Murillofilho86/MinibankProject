@@ -1,12 +1,13 @@
 using System;
 using SP.Minibank.Shared.Commands;
+using FluentValidator;
+using FluentValidator.Validation;
 
 namespace SP.Minibank.Domain.Commands.CustomerCommands.Outputs
 {
-    public class CreateCustomerCommandResult : ICommandResult
+    public class CommandResult : ICommandResult
     {
-
-        public CreateCustomerCommandResult(bool success, string message, object data)
+        public CommandResult(bool success, string message, object data)
         {
             Success = success;
             Message = message;
@@ -14,8 +15,7 @@ namespace SP.Minibank.Domain.Commands.CustomerCommands.Outputs
         }
 
         public bool Success { get; set; }
-        public string Message { get; set; }
         public object Data { get; set; }
-
+        public string Message { get; set; }
     }
 }

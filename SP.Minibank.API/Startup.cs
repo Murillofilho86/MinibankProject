@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
+using SP.Minibank.Domain.Handlers;
 using SP.Minibank.Domain.Repositories;
 using SP.Minibank.Domain.Services;
 using SP.Minibank.Infra.MinibankContext.DataContexts;
@@ -18,10 +19,12 @@ namespace SP.Minibank.API
         {
             services.AddMvc();
 
-            
+            services.AddResponseCompression();
+
             services.AddScoped<DataContext, DataContext>();
             services.AddTransient<ICustomerRepository, CustomerRepository>();
             services.AddTransient<IEmailService, EmailService>();
+            services.AddTransient<CustomerHandler, CustomerHandler>();
             
         }
 
@@ -35,7 +38,7 @@ namespace SP.Minibank.API
             }
 
             app.UseMvc();
-
+            app.UseResponseCompression();
         }
     }
 }
