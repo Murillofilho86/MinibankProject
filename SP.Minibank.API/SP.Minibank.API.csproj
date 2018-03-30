@@ -3,15 +3,16 @@
     <TargetFramework>netcoreapp2.0</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
-    <Folder Include="wwwroot\"/>
+    <Folder Include="wwwroot\" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore" Version="2.0.2"/>
-    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.6"/>
-    <PackageReference Include="FluentValidator" Version="2.0.4"/>
+    <PackageReference Include="Microsoft.AspNetCore" Version="2.0.2" />
+    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.6" />
+    <PackageReference Include="FluentValidator" Version="2.0.4" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SP.Minibank.Domain\SP.Minibank.Domain.csproj"/>
-    <ProjectReference Include="..\SP.Minibank.Shared\SP.Minibank.Shared.csproj"/>
+    <ProjectReference Include="..\SP.Minibank.Domain\SP.Minibank.Domain.csproj" />
+    <ProjectReference Include="..\SP.Minibank.Shared\SP.Minibank.Shared.csproj" />
+    <ProjectReference Include="..\SP.Minibank.Infra\SP.Minibank.Infra.csproj" />
   </ItemGroup>
 </Project>
