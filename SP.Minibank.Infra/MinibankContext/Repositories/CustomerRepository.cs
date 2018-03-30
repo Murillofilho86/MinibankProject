@@ -5,6 +5,9 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using Dapper;
+using SP.Minibank.Domain.Queries;
+using System.Collections.Generic;
+using System;
 
 namespace SP.Minibank.Infra.MinibankContext.Repositories
 {
@@ -38,6 +41,27 @@ namespace SP.Minibank.Infra.MinibankContext.Repositories
                     "spCheckEmail",
                     new { Email = email },
                     commandType: CommandType.StoredProcedure)
+                .FirstOrDefault();
+        }
+
+        public IEnumerable<ListCustomerQueryResult> Get()
+        {
+            return
+                _context
+                .Connection
+                .Query<ListCustomerQueryResult>(
+                    "SELECT [ID], CONCAT([FirstName], ' ', [LastName] AS [Name],  [Document], [Email], FROM [Customer])",
+                new { });
+        }
+
+        public GetCustomerQueryResult GetById(Guid id)
+        {
+            return
+                   _context
+                .Connection
+                .Query<GetCustomerQueryResult>(
+                    "SELECT [ID], CONCAT([FirstName], ' ', [LastName] AS [Name], [Document], [Email], FROM [Customer] WHERE [Id] = @id)",
+                new { id = id })
                 .FirstOrDefault();
         }
 

@@ -2,24 +2,27 @@ using System;
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using SP.Minibank.Domain.Entities;
+using SP.Minibank.Domain.Queries;
+using SP.Minibank.Domain.Repositories;
 using SP.Minibank.Domain.ValueObjects;
 
 namespace SP.Minibank.API.Controllers
 {
     public class CustomerController
     {
+        private readonly ICustomerRepository _respository;
         [HttpGet]
         [Route("customers")]
-        public List<Customer> Get()
+        public IEnumerable<ListCustomerQueryResult> Get()
         {
-            return null;
+            return _respository.Get();
         }
 
         [HttpGet]
         [Route("customers/{id}")]
-        public Customer GetById(Guid id)
+        public GetCustomerQueryResult GetById(Guid id)
         {
-            return null;
+            return _respository.GetById(id);
         }
 
         [HttpGet]
