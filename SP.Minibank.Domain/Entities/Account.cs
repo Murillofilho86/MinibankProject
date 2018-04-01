@@ -8,7 +8,7 @@ namespace SP.Minibank.Domain.Entities
 {
     public class Account : EntityBase
     {
-        private readonly IList<BankTransaction> _bankTransaction;
+   //     private readonly IList<BankTransaction> _bankTransaction;
 
         public Account(Customer customer)
         {
@@ -39,7 +39,7 @@ namespace SP.Minibank.Domain.Entities
         public EAccountStatus Status { get; private set; }
         public DateTime DateCreated { get; private set; }
         public Customer Costumer { get; private set; }
-        public IReadOnlyCollection<BankTransaction> BankTransaction => _bankTransaction.ToArray();
+ //       public IReadOnlyCollection<BankTransaction> BankTransaction => _bankTransaction.ToArray();
 
 
         public override string ToString()
