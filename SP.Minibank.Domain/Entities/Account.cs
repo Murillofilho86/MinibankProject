@@ -8,38 +8,24 @@ namespace SP.Minibank.Domain.Entities
 {
     public class Account : EntityBase
     {
-   //     private readonly IList<BankTransaction> _bankTransaction;
 
-        public Account(Customer customer)
-        {
-            Costumer = customer;
-            DateCreated = DateTime.Now;
-            Status = EAccountStatus.Created;
-            Agency = "7157";
-            NumberAccount = "23675 - 4";
-        }
 
-        public Account(string numberAccount, decimal balance, string agency, string numberDocument, ETransactionType type, EAccountStatus status, DateTime dateCreated, Customer costumer)
+        public Account(Customer customer, string agency, string numberAccount, decimal balance)
         {
+            Customer = customer;
             NumberAccount = numberAccount;
             Balance = balance;
             Agency = agency;
-            NumberDocument = numberDocument;
-            Type = type;
-            Status = status;
-            DateCreated = dateCreated;
-            Costumer = costumer;
-
+            DateCreated = DateTime.Now;
         }
+
+        public string Agency { get; private set; }
         public string NumberAccount { get; private set; }
         public decimal Balance { get; private set; }
-        public string Agency { get; private set; }
-        public string NumberDocument { get; set; }
-        public ETransactionType Type { get; private set; }
         public EAccountStatus Status { get; private set; }
         public DateTime DateCreated { get; private set; }
-        public Customer Costumer { get; private set; }
- //       public IReadOnlyCollection<BankTransaction> BankTransaction => _bankTransaction.ToArray();
+        public Customer Customer { get; private set; }
+
 
 
         public override string ToString()

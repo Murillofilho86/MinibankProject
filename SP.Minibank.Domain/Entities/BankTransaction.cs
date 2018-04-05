@@ -5,17 +5,18 @@ namespace SP.Minibank.Domain.Entities
 {
     public class BankTransaction : EntityBase
     {
-           public BankTransaction(DateTime dateTransaction, decimal value)
-      {
-          DateTransaction = DateTime.Now;
-          ValueTransaction = value;
-      }
+        public BankTransaction(Account account, Decimal value)
+        {
+            DateTransaction = DateTime.Now;
+            Account = account;
+            ValueTransaction = value;
+        }
 
-        public DateTime DateTransaction { get; set; }
-        public decimal ValueTransaction { get; set; }
+        public Account Account { get; private set; }
+        public DateTime DateTransaction { get; private set; }
+        public decimal ValueTransaction { get; private set; }
+  
 
-              
-         
         public override string ToString()
         {
             return DateTransaction + ", " + ValueTransaction;

@@ -22,9 +22,7 @@ namespace SP.Minibank.Tests.Entities
         [TestMethod]
         public void ShouldCreateAccountWhenValid()
         {
-            var account = new Account(_customer);
 
-            Assert.AreEqual(true, account.Valid);
         }
 
     }
