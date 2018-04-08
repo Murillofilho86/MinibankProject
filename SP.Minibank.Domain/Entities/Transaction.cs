@@ -3,19 +3,20 @@ using SP.Minibank.Shared.Entities;
 
 namespace SP.Minibank.Domain.Entities
 {
-    public class BankTransaction : EntityBase
+    public abstract class Transaction : EntityBase
     {
-        public BankTransaction(Account account, Decimal value)
+        protected Transaction(Account account, decimal valueTransaction)
         {
-            DateTransaction = DateTime.Now;
             Account = account;
-            ValueTransaction = value;
+            DateTransaction = DateTime.Now;
+            ValueTransaction = valueTransaction;
         }
 
         public Account Account { get; private set; }
         public DateTime DateTransaction { get; private set; }
         public decimal ValueTransaction { get; private set; }
   
+        public abstract string addTransaction(Account account, DateTime dateTransaction);
 
         public override string ToString()
         {

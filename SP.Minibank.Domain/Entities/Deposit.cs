@@ -5,19 +5,14 @@ using SP.Minibank.Domain.Services;
 
 namespace SP.Minibank.Domain.Entities
 {
-    public class Deposit : ITransactionService
+    public class Deposit : Transaction
     {
+        protected Deposit(Account account, decimal valueTransaction)
+         : base(account, valueTransaction) {  }
 
-        public Deposit(BankTransaction bankTransaction)
+        public override string addTransaction(Account account, DateTime dateTransaction)
         {
-            BankTransaction = bankTransaction;
+            throw new NotImplementedException();
         }
-
-        public BankTransaction BankTransaction { get; set; }
-
-        public void AddTransaction(Account account, decimal valueTransaction)
-        {
-            
-        }
-     }
+    }
 }

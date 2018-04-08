@@ -4,13 +4,14 @@ using SP.Minibank.Domain.Services;
 
 namespace SP.Minibank.Domain.Entities
 {
-    public class Withdrawal : ITransactionService
+    public class Withdrawal : Transaction
     {
-   
-      
-        public void AddTransaction(Account account, decimal valueTransaction)
+        protected Withdrawal(Account account, decimal valueTransaction)
+        : base(account, valueTransaction) { }
+        
+        public override string addTransaction(Account account, DateTime dateTransaction)
         {
-            
+            throw new NotImplementedException();
         }
     }
 }
