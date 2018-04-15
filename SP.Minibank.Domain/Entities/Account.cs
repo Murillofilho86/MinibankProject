@@ -29,6 +29,21 @@ namespace SP.Minibank.Domain.Entities
         public IReadOnlyCollection<Transaction> Transactions => _transaction.ToArray();
 
 
+        public void addDeposit(Transaction transaction, decimal value){
+            
+            Balance += value;
+        }
+
+
+        public void addWithdrawal(Guid id, decimal value){
+            if(Balance <= 0)
+                AddNotification("Balance", $"Saldo {Balance} indisponível");
+            Balance -= value;
+            var transaction = new Transaction(id, value, ETransactionType.Withdrawal);
+            _transaction.Add(transaction);
+        }
+
+
         public override string ToString()
         {
             return NumberAccount;

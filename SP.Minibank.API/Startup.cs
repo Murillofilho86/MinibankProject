@@ -37,6 +37,8 @@ namespace SP.Minibank.API
             services.AddTransient<ICustomerRepository, CustomerRepository>();
             services.AddTransient<IEmailService, EmailService>();
             services.AddTransient<CustomerHandler, CustomerHandler>();
+            services.AddTransient<IAccountRepository, AccountRepository>();
+            services.AddTransient<AccountHandler, AccountHandler>();
             
 
             Settings.ConnectionString = $"{Configuration["connectionString"]}";

@@ -1,23 +1,24 @@
 using System;
+using SP.Minibank.Domain.Enums;
 using SP.Minibank.Shared.Entities;
 
 namespace SP.Minibank.Domain.Entities
 {
-    public abstract class Transaction : EntityBase
+    public class Transaction : EntityBase
     {
-        protected Transaction(Account account, decimal valueTransaction)
+        public Transaction(Guid id, decimal valueTransaction, ETransactionType transactionType)
         {
-            Account = account;
+            AccountId = id;
             DateTransaction = DateTime.Now;
             ValueTransaction = valueTransaction;
+            Type = transactionType;
         }
 
-        public Account Account { get; private set; }
+        public Guid AccountId { get; private set; }
         public DateTime DateTransaction { get; private set; }
         public decimal ValueTransaction { get; private set; }
-  
-        public abstract string addTransaction(Account account, DateTime dateTransaction);
-
+        public ETransactionType Type { get; private set; }
+        
         public override string ToString()
         {
             return DateTransaction + ", " + ValueTransaction;

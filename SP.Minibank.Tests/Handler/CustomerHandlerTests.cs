@@ -8,7 +8,7 @@ namespace SP.Minibank.Tests.Handler
     [TestClass]
     public class CustomerHandlerTests
     {
-           [TestMethod]
+        [TestMethod]
         public void ShouldRegisterCustomerWhenCommandIsValid()
         {
           var command = new CreateCustomerCommand();   
