@@ -29,16 +29,26 @@ namespace SP.Minibank.Domain.Entities
         public IReadOnlyCollection<Transaction> Transactions => _transaction.ToArray();
 
 
-        public void addDeposit(Transaction transaction, decimal value){
+        public void AddDeposit(Guid id, decimal value){
+            if(value >= 0)
+                AddNotification("Value", "Não é possível depositar o valor informado: {value}");
             
             Balance += value;
+           
+            var transaction = new Transaction(id, value, ETransactionType.Deposit);
+            _transaction.Add(transaction);
         }
 
 
-        public void addWithdrawal(Guid id, decimal value){
+        public void AddWithdrawal(Guid id, decimal value){
             if(Balance <= 0)
                 AddNotification("Balance", $"Saldo {Balance} indisponível");
+          
+           if(value <= 0)
+                AddNotification("Value", "Não é possível sacar o valor informado {value}");
+
             Balance -= value;
+          
             var transaction = new Transaction(id, value, ETransactionType.Withdrawal);
             _transaction.Add(transaction);
         }
